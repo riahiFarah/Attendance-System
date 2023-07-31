@@ -4,6 +4,20 @@ import os
 import cvzone
 import face_recognition
 import numpy as np
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+from firebase_admin import storage
+
+
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred , {
+    'databaseURL' : "your URL",
+    'storageBucket' : "your URL"
+})
+
+
+
 
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 cap.set(3, 640)
@@ -39,6 +53,10 @@ print(studentsIds)
 print('EncodeFile loaded')
 
 
+modeType = 0
+counter = 0
+id = -1
+
 while True:
     success, img = cap.read()
 
@@ -53,19 +71,19 @@ while True:
 
     # Check if imgModeList has at least one valid image before accessing it
     if len(imgModeList) > 0:
-        imgBackground[44:44 + 633, 808:808 + 414] = imgModeList[3]
+        imgBackground[44:44 + 633, 808:808 + 414] = imgModeList[modeType]
 
     for encodeFace , faceLoc in zip(encodeCurFrame , faceCurFrame) :
         matches = face_recognition.compare_faces(encodeListKnown,encodeFace)
         faceDis = face_recognition.face_distance(encodeListKnown,encodeFace)
 
-        print("matches", matches)
+        # print("matches", matches)
         # print("faceDis", faceDis)
 
         matchIndex = np.argmin(faceDis)
         #print("matchIndex", matchIndex)
         if matches[matchIndex] :
-            print("known face detected")
+            # print("known face detected")
             # print(studentsIds[matchIndex])
             # Get the scaled face coordinates
             y1, x2, y2, x1 = faceLoc
@@ -76,5 +94,48 @@ while True:
 
             # Draw the green rectangle on the original image (imgBackground)
             imgBackground = cvzone.cornerRect(imgBackground, bbox, rt=0)
+
+            id=studentsIds[matchIndex]
+            if counter == 0 :
+                counter = 1
+                modeType = 1
+
+    if counter != 0 :
+        if counter ==1:
+            # Get the users data
+            studentInfo = db.reference(f'Students/{id}').get()
+            print(studentInfo)
+
+        # Get image from storage
+
+
+        cv2.putText(imgBackground,str(studentInfo['total_attendance']),(861,125),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),1)
+
+        cv2.putText(imgBackground,str(studentInfo['major']),(1006,550),cv2.FONT_HERSHEY_COMPLEX,0.5,(255,255,255),1)
+
+        cv2.putText(imgBackground,str(id),(1006,493),cv2.FONT_HERSHEY_COMPLEX,0.5,(255,255,255),1)
+
+        cv2.putText(imgBackground,str(studentInfo['standing']),(910,625),cv2.FONT_HERSHEY_COMPLEX,0.6,(100,100,100),1)
+
+        cv2.putText(imgBackground, str(studentInfo['year']), (1025, 625), cv2.FONT_HERSHEY_COMPLEX, 0.6,(100,100,100),
+                    1)
+
+        cv2.putText(imgBackground,str(studentInfo['starting_year']),(1125,625),cv2.FONT_HERSHEY_COMPLEX,0.6,(100,100,100),1)
+
+
+        (w,h), _ = cv2.getTextSize(studentInfo['name'],cv2.FONT_HERSHEY_COMPLEX,1,1)
+        offset = (414-w)//2
+        cv2.putText(imgBackground,str(studentInfo['name']),(808 + offset ,445),cv2.FONT_HERSHEY_COMPLEX,1,(50,50,50),1)
+
+
+        '''
+
+        cv2.putText(imgBackground,str(studentInfo['total_attendance']),(808,445),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),1)
+
+
+        cv2.putText(imgBackground,str(studentInfo['last_attendance_time']),(808,445),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),1)
+
+'''
+        counter+=1
     cv2.imshow("Face Attendance", imgBackground)
     cv2.waitKey(1)
