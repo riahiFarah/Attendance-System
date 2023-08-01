@@ -4,7 +4,7 @@ from firebase_admin import db
 
 cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred , {
-    'databaseURL' : "use your URL here"
+    'databaseURL' : "https://faceattendancertdb-default-rtdb.firebaseio.com/"
 })
 
 ref = db.reference('Students')
@@ -33,7 +33,7 @@ data = {
 
     "3": {
         "name": "Mark Zuckerberg",
-        "major": "Computer Science",
+        "major": "Computer Sc",
         "starting_year": 2018,
         "total_attendance": 6,
         "standing": 6,
@@ -53,9 +53,9 @@ data = {
 
     "5": {
         "name": "Farah Riahi",
-        "major": "Computer Science",
+        "major": "Computer Sc",
         "starting_year": 2017,
-        "total_attendance": 6,
+        "total_attendance": 8,
         "standing": 6,
         "year": 4,
         "last_attendance_time": "2022-12-11 00:54:34"
