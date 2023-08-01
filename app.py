@@ -9,13 +9,13 @@ from firebase_admin import credentials
 from firebase_admin import db
 from firebase_admin import storage
 
-
 cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred , {
-    'databaseURL' : "your URL",
-    'storageBucket' : "your URL"
+    'databaseURL' : "your db URL here",
+    'storageBucket' : "your storage URL here"
 })
 
+bucket = storage.bucket()
 
 
 
@@ -30,7 +30,7 @@ imgBackground = cv2.imread('ressources/background.png')
 folderModePath = 'ressources/modes'
 modePathList = os.listdir(folderModePath)
 imgModeList = []
-
+imgStudent = []
 for path in modePathList:
     image_path = os.path.join(folderModePath, path)
     img_mode = cv2.imread(image_path)
@@ -83,6 +83,11 @@ while True:
         matchIndex = np.argmin(faceDis)
         #print("matchIndex", matchIndex)
         if matches[matchIndex] :
+            # Create the image path
+            # image_path = f'images/{id}.png'
+
+            # print(f"Attempting to read image from path: {image_path}")
+
             # print("known face detected")
             # print(studentsIds[matchIndex])
             # Get the scaled face coordinates
@@ -100,15 +105,32 @@ while True:
                 counter = 1
                 modeType = 1
 
+
     if counter != 0 :
         if counter ==1:
             # Get the users data
             studentInfo = db.reference(f'Students/{id}').get()
             print(studentInfo)
 
-        # Get image from storage
+            # Get image from storage
+            blob = bucket.get_blob(f'images/{id}.png')
 
+            # Get image from the local file system
+            # imgStudent = cv2.imread(image_path)
 
+            if blob is None :
+                print('blob is none')
+
+            if blob is not None:  # Check if the blob exists before attempting to download
+
+                array = np.frombuffer(blob.download_as_string(), np.uint8)
+                imgStudent = cv2.imdecode(array, cv2.COLOR_BGRA2BGR)
+                if imgStudent is not None and imgStudent.shape[0] != 0:
+                    imgBackground[175:175 + 216, 909:909 + 216] = imgStudent
+                    counter += 1
+
+                else:
+                    print(f"Failed to download or decode image for student ID {id}")
         cv2.putText(imgBackground,str(studentInfo['total_attendance']),(861,125),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),1)
 
         cv2.putText(imgBackground,str(studentInfo['major']),(1006,550),cv2.FONT_HERSHEY_COMPLEX,0.5,(255,255,255),1)
@@ -128,14 +150,11 @@ while True:
         cv2.putText(imgBackground,str(studentInfo['name']),(808 + offset ,445),cv2.FONT_HERSHEY_COMPLEX,1,(50,50,50),1)
 
 
-        '''
-
-        cv2.putText(imgBackground,str(studentInfo['total_attendance']),(808,445),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),1)
 
 
-        cv2.putText(imgBackground,str(studentInfo['last_attendance_time']),(808,445),cv2.FONT_HERSHEY_COMPLEX,1,(255,255,255),1)
-
-'''
-        counter+=1
+    '''  
+      imgBackground[175:175 + 216, 909:909 + 216] = imgStudent
+    counter+=1 
+    '''
     cv2.imshow("Face Attendance", imgBackground)
     cv2.waitKey(1)
