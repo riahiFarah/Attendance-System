@@ -11,8 +11,8 @@ ref = db.reference('Students')
 
 data = {
     "1": {
-        "name": "Elon Musk",
-        "major": "Robotics",
+        "name": "Taha HA",
+        "major": "Business",
         "starting_year": 2017,
         "total_attendance": 6,
         "standing": 6,
@@ -21,8 +21,8 @@ data = {
     },
 
     "2": {
-        "name": "Jackie Chan",
-        "major": "Art",
+        "name": "Farah Riahi",
+        "major": "Computer Sc",
         "starting_year": 2016,
         "total_attendance": 5,
         "standing": 1,
@@ -42,8 +42,8 @@ data = {
     },
 
     "4": {
-        "name": "Ons Jabeur",
-        "major": "Sports",
+        "name": "Harry Poter",
+        "major": "Magic",
         "starting_year": 2017,
         "total_attendance": 6,
         "standing": 6,
@@ -52,8 +52,8 @@ data = {
     },
 
     "5": {
-        "name": "Farah Riahi",
-        "major": "Computer Sc",
+        "name": "Elon Musk",
+        "major": "Robotics",
         "starting_year": 2017,
         "total_attendance": 8,
         "standing": 6,
