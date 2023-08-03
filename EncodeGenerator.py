@@ -10,8 +10,8 @@ from firebase_admin import storage
 
 cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred, {
-    'databaseURL': "https://faceattendancertdb-default-rtdb.firebaseio.com/",
-    'storageBucket': "faceattendancertdb.appspot.com"
+    'databaseURL': "Your DB URL",
+    'storageBucket': "your storage URL"
 })
 
 # Importing people images
