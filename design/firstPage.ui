@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>bgLogin.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>10</y>
+     <width>161</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>image.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>256</x>
+     <y>71</y>
+     <width>421</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:  #fff;
+font-family: Daytona;
+font-size : 50px;
+letter-spacing:3px;
+
+</string>
+   </property>
+   <property name="text">
+    <string>Easy Attendance</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="admin">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>300</y>
+     <width>190</width>
+     <height>170</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+  display: block;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  border: 2px solid #ddd;
+  padding: 10px;
+  padding-top: 55px;
+  transition: all .25s;
+  border-radius:10px;
+}
+QPushButton:hover{
+ 	 border-color:rgb(74, 204, 253);
+	color: #FFF;
+	background:rgb(74, 204, 253);
+	letter-spacing:1px;
+	font-weight : bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>Admin Interface</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>310</y>
+     <width>71</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>adminIcon.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="user">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>300</y>
+     <width>190</width>
+     <height>170</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+  display: block;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  border: 2px solid #ddd;
+  padding: 10px;
+  padding-top: 55px;
+  transition: all .25s;
+  border-radius:10px;
+}
+QPushButton:hover{
+ 	 border-color:rgb(74, 204, 253);
+	color: #FFF;
+	background:rgb(74, 204, 253);
+	letter-spacing:1px;
+	font-weight : bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>Attendance Interface</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>246</x>
+     <y>320</y>
+     <width>71</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>userIcon.png</pixmap>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>sho.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="updateProfile">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>10</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+  display: block;
+  font-size: 10px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color:#333;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 10px;
+  letter-spacing: 1px;
+  transition: all .25s;
+}
+QPushButton:hover{
+ 	 border-color: rgb(74, 204, 253);
+ 	font-size: 12px;
+	color: rgb(74, 204, 253);
+}</string>
+   </property>
+   <property name="text">
+    <string>Update Profile</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleteProfile">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>10</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+  display: block;
+  font-size: 10px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color:#333;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 10px;
+  letter-spacing: 1px;
+  transition: all .25s;
+}
+QPushButton:hover{
+ 	 border-color: rgb(74, 204, 253);
+ 	font-size: 12px;
+	color: rgb(74, 204, 253);
+}</string>
+   </property>
+   <property name="text">
+    <string>Delete Profile</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addProfile">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>10</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+  display: block;
+  font-size: 10px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color:#333;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 10px;
+  letter-spacing: 1px;
+  transition: all .25s;
+}
+QPushButton:hover{
+ 	 border-color: rgb(74, 204, 253);
+ 	font-size: 12px;
+	color: rgb(74, 204, 253);
+}</string>
+   </property>
+   <property name="text">
+    <string>Add Profile</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="manageTimer">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>10</y>
+     <width>231</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+  display: block;
+  font-size: 10px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color:#333;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 10px;
+  letter-spacing: 1px;
+  transition: all .25s;
+}
+QPushButton:hover{
+ 	 border-color: rgb(74, 204, 253);
+ 	font-size: 12px;
+	color: rgb(74, 204, 253);
+}</string>
+   </property>
+   <property name="text">
+    <string>Manage Timer</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>10</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight : bold;
+display: block;
+  font-size: 10px;
+  font-family: Daytona;
+  text-decoration: none;
+  color:  rgb(74, 204, 253);
+  border-top: 2px solid ;
+  border-bottom: 2px solid ;
+  padding: 10px;
+  letter-spacing: 1px;
+  transition: all .25s;
+ border-color: rgb(74, 204, 253);</string>
+   </property>
+   <property name="text">
+    <string>          Facial Attendance System</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnMenu">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>640</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+  display: block;
+  font-size: 10px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #333;
+  padding: 10px;
+  transition: all .25s;
+  border-radius:10px;
+}
+QPushButton:hover{
+ 	 border-color:rgb(74, 204, 253);
+	color: rgb(74, 204, 253);
+	letter-spacing:1px;
+	font-weight : bold;
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;&lt;retour</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
